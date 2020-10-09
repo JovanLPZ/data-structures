@@ -68,6 +68,6 @@ public class cola<t>
 
     public void fitQueue() 
     {
-
+        
     }
 }
