@@ -10,6 +10,7 @@ public class expresionPolaca
 
         System.out.println("Escriba la expresion: ");
         String expresion = leer.next();
+        leer.close();
 
         pila<Character> p = new pila<Character>(expresion.length());
 

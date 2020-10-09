@@ -1,11 +1,11 @@
 package EDD;
+
 public class cola<t> 
 {
     private Object[] cola;
     private int front, rear, size;
 
-
-    cola (int Size)
+    cola(int Size) 
     {
         cola = (t[]) new Object[size];
 
@@ -15,58 +15,59 @@ public class cola<t>
 
         rear = -1;
     }
-    
-    public boolean full()
+
+    public boolean full() 
     {
-        return rear == size-1;
+        return rear == size - 1;
     }
 
-    public boolean empty()
+    public boolean empty() 
     {
         return front == -1;
     }
 
-    public void add(t dato)
+    public void add(t dato) 
     {
-        if(!empty())
+        if (!empty()) 
         {
-            if(empty())
-            front++;
+            if (empty())
+                front++;
             cola[++rear] = dato;
 
         }
     }
 
-    public t remove()
+    public t remove() 
     {
         Object temp = cola[front];
-        if(front==rear)
+        if (front == rear) 
         {
             front = -1;
             rear = -1;
         }
-        else
-        front++;
+
+         else
+            front++;
         return ((t) temp);
 
     }
 
-    public t peekNext()
+    public t peekNext() 
     {
         t temp = (t) cola[front];
         return temp;
     }
 
-    public void peekQueue()
+    public void peekQueue() 
     {
-        for(int i = 0; i < cola.length; i++)
+        for (int i = 0; i < cola.length; i++) 
         {
             System.out.println(cola[i] + " ");
         }
     }
 
-    public void fitQueue()
+    public void fitQueue() 
     {
-        
+
     }
 }
