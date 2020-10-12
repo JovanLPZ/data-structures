@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - aplicacionCola",
+            "request": "launch",
+            "mainClass": "EDD.aplicacionCola",
+            "projectName": "EDD_5a7f0593"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - conversionInfijoAPostfijo",
             "request": "launch",
             "mainClass": "EDD.conversionInfijoAPostfijo",

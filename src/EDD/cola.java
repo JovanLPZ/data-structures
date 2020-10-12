@@ -5,7 +5,7 @@ public class cola<t>
     private Object[] cola;
     private int front, rear, size;
 
-    cola(int Size) 
+    cola(int size) 
     {
         cola = (t[]) new Object[size];
 
@@ -28,7 +28,7 @@ public class cola<t>
 
     public void add(t dato) 
     {
-        if (!empty()) 
+        if (!full()) 
         {
             if (empty())
                 front++;
@@ -39,7 +39,7 @@ public class cola<t>
 
     public t remove() 
     {
-        Object temp = cola[front];
+        t temp = (t) cola[front];
         if (front == rear) 
         {
             front = -1;
@@ -48,7 +48,7 @@ public class cola<t>
 
          else
             front++;
-        return ((t) temp);
+        return temp;
 
     }
 
@@ -68,6 +68,28 @@ public class cola<t>
 
     public void fitQueue() 
     {
-        
+        t[] colatemp = (t[]) new Object[cola.length];
+        int c = 0;
+        for (int i = front; i < cola.length; i++) 
+        {
+            if(cola[i] != null)
+            {
+                colatemp[c] = (t) cola[i];
+                c++;
+            }
+        }
+
+        /*for(int i = 0; i < cola.length; i++)
+        {
+            cola[i] = null;
+        }*/
+
+        for(int i = 0; i < cola.length; i++)
+        {
+            cola[i] = colatemp[i];
+        }
+
+        front = 0; 
+        rear = c;
     }
 }

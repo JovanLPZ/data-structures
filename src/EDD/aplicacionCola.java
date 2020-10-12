@@ -51,7 +51,7 @@ public class aplicacionCola
                 System.out.println("Mostrar siguiente dato");
                 if(cola.empty())
                 {
-                    System.out.println("Cola vacia, nada que mostar");
+                    System.out.println("Nada que mostar");
                 }
 
                 else
@@ -65,6 +65,10 @@ public class aplicacionCola
                 System.out.println("Contenido de la cola");
                 cola.peekQueue();
                 System.out.println();
+                break;
+
+                case 5:
+                cola.fitQueue();
                 break;
 
                 case 0: //Terminar programa
@@ -83,13 +87,15 @@ public class aplicacionCola
     public static int menu()
     {
         
-        System.out.println("Menu de opciones\n");
+        System.out.println("\nMenu de opciones\n");
         System.out.println("1.- Agrega dato\n");
         System.out.println("2.- Retira dato\n");
         System.out.println("3.- Muestra siguiente\n");
+        System.out.println("4.- Muestra contenido\n");
+        System.out.println("5.- Acomodar cola\n");
         System.out.println("0.- Salir\n");
         System.out.print("\nOpcion: ");
-        leer.close();
+        
         return leer.nextInt();
     }
 }
