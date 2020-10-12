@@ -90,6 +90,6 @@ public class cola<t>
         }
 
         front = 0; 
-        rear = c;
+        rear = c-1;
     }
 }

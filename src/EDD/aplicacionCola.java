@@ -67,7 +67,7 @@ public class aplicacionCola
                 System.out.println();
                 break;
 
-                case 5:
+                case 5: //Acomodar cola
                 cola.fitQueue();
                 break;
 
