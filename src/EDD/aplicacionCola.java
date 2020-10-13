@@ -8,6 +8,8 @@ public class aplicacionCola
 
     private static cola<Integer> cola = new cola<Integer>(5);
 
+    private static colaC<Integer> colaC = new colaC<Integer>(5);
+
     public static void main(String[] args) 
     {
         
@@ -20,6 +22,11 @@ public class aplicacionCola
             {
                 case 1: //Agregar
                 System.out.println("Agregar dato");
+
+                if(cola.full() || colaC.full()){
+                System.out.print("Escriba el dato a agregar: ");
+                int cant1 = leer.nextInt();
+                
                 if(cola.full())
                 {
                     System.out.println("Ya no se puede agregar datos, cola llena");
@@ -27,10 +34,16 @@ public class aplicacionCola
 
                 else
                 {
-                    System.out.print("Escriba el dato a agregar: ");
-                    int cant1 = leer.nextInt();
                     cola.add(cant1); 
                 }
+
+                if(colaC.full())
+                System.out.println("No se puede agregar");
+
+                else
+                colaC.add(cant1);
+            }
+               
                 
                 break;
 
@@ -43,6 +56,16 @@ public class aplicacionCola
                 else
                 {
                     System.out.println(cola.remove());
+                }
+
+                if(colaC.empty())
+                {
+                    System.out.println("Cola vacia, nada que retirar");
+                }
+
+                else
+                {
+                    System.out.println(colaC.remove());
                 }
 
                 break;
