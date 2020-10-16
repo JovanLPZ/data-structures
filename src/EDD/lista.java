@@ -19,6 +19,19 @@ public class lista
         return new apuntador(root.getNext());
     }
 
+
+    public apuntador search(int pass)
+    {
+        apuntador aux =  pointStart();
+
+        while(aux != null && aux.getClass() != null && aux.getPass() != pass)
+        {
+            aux.move();
+        }
+
+        return aux;
+    }
+
     public apuntador searchPrevious(int pass)
     {
         apuntador aux =  pointStart();
@@ -28,7 +41,7 @@ public class lista
             aux.move();
         }
 
-        return aux;
+        return aux != null && aux.getClass() != null ? aux:null;
     }
 
     public apuntador last()
@@ -54,7 +67,7 @@ public class lista
     {
         apuntador aux = pointStart();
 
-        while(aux != null && aux.getNext().getPass() != pass)
+        while(aux.getNext() != null && aux.getNext().getPass() != pass)
         {
             aux.move();
         }
