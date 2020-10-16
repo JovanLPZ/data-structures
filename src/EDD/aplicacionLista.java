@@ -51,8 +51,17 @@ public class aplicacionLista
                 System.out.print("Agregar clave: ");
                 pass = leer.nextInt();
 
-                lista.searchPrevious(pass);
-            
+                apuntador ap = lista.search(pass);
+
+                if(ap != null)
+                {
+                    System.err.println(ap);
+                }
+
+                else
+                {
+                    System.out.println("Clave no encontrada");
+                }
 
                 break;
 
