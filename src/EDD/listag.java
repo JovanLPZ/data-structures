@@ -9,6 +9,11 @@ public class listag<t>
         root = new nodog<t>();
     }
 
+    public boolean empty()
+    {
+        return root.getNext() == null;
+    }
+
     public pointerg<t> pointStart()
     {
         return new pointerg<t>(root);
@@ -18,7 +23,6 @@ public class listag<t>
     {
         return new pointerg<t>(root.getNext());
     }
-
 
     public pointerg<t> search(int pass)
     {
@@ -32,13 +36,14 @@ public class listag<t>
         return aux;
     }
 
-    public pointerg<t> searchPrevious(int pass)
+    public int index (Object dato)
     {
         pointerg<t> aux =  pointStart();
-
-        while(aux != null && aux.getNext().getPass() < pass)
+        int contador = 1;
+        while(aux.getNext() != null && contador < indice )
         {
             aux.go();
+            contador++;
         }
 
         return aux != null && aux.getClass() != null ? aux:null;
@@ -75,10 +80,18 @@ public class listag<t>
 
     public void add(t dato, int indice)
     {
-        add(dato, pointStart());
+        int contador = 1;
+        pointerg<t> aux = pointStart();
+        while(aux.getNext() != null && contador < indice )
+        {
+            aux.go();
+            contador++;
+        }
+        
+        add(dato, aux);
     }
 
-    public void remove(int pass )
+    public void remove(int indice )
     {
         pointerg<t> aux = pointStart();
 
@@ -91,5 +104,23 @@ public class listag<t>
         {
             aux.setNext(aux.getNext().getNext());
         }
+    }
+
+    public t get(int indice)
+    {   
+        pointerg<t> aux = pointStart();
+        int contador = 1;
+        while(aux != null && aux.nodog() != null && contador < indice )
+        {
+            aux.go();
+            contador++;
+        }
+
+        return aux.getNodog().getDato();
+    }
+
+    public int size()
+    {
+        pointerg<t>
     }
 }

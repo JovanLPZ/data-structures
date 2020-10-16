@@ -6,7 +6,7 @@ public class aplicacionLista
 {
     public static Scanner leer = new Scanner(System.in);
 
-    private static lista lista  = new lista();
+    private static listag<producto> lista  = new listag<producto>();
 
   
 
@@ -14,7 +14,8 @@ public class aplicacionLista
     {
         
         int opcion = 0, pass, value;
-        String name;
+        String name, descripcion;
+        float precio;
         do
         {
             opcion = menu();
@@ -32,7 +33,7 @@ public class aplicacionLista
                 System.out.println("Agregar valor: ");
                 value = leer.nextInt();
 
-                lista.add(pass, name, value, lista.pointStart());
+                lista.addFirst(new producto(pass, descripcion, precio));
              
                 
                 break;
