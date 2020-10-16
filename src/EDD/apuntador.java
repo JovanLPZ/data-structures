@@ -89,6 +89,9 @@ public class apuntador
         nodo.setNext(nodo);
     }
 
-    
+    public String toString()
+    {
+        return nodo == null ? null :"pass: " + nodo.getPass() + " name: " + nodo.getName() + " Value: " + nodo.getValue();
+    }
 
 }

@@ -17,6 +17,11 @@ public class nodo
             this.next = next;
         }
 
+        public nodo()
+        {
+            this(0,null, 0, null);
+        }
+
 
         public nodo (int pass, String name, int value)
         {
