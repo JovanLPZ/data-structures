@@ -4,31 +4,51 @@ public class listag<t>
 {
     private nodog<t> root;
 
-    public listag()
+    public listag() 
     {
         root = new nodog<t>();
     }
 
-    public boolean empty()
+    public boolean empty() 
     {
         return root.getNext() == null;
     }
 
-    public pointerg<t> pointStart()
+    public pointerg<t> pointStart() 
     {
         return new pointerg<t>(root);
     }
 
-    public pointerg<t> pointFirst()
+    public pointerg<t> pointFirst() 
     {
         return new pointerg<t>(root.getNext());
     }
 
-    public pointerg<t> search(int pass)
+    public int indexOf(int pass) 
     {
-        pointerg<t> aux =  pointStart();
+        pointerg<t> aux = pointStart();
+        int cont = 0;
+        while (aux != null && aux.getNodog() != null) 
+        {
+            producto p = (producto) aux.getNodog().getDato();
+            if (!p.equals(pass)) 
+            {
+                aux.go();
+                cont++;
+            }
 
-        while(aux != null && aux.getClass() != null && aux.getPass() != pass)
+            else 
+            {
+                break;
+            }
+        }
+        return aux != null && aux.getNodog() != null ? cont : Integer.MAX_VALUE;
+    }
+
+    public pointerg<t> last() 
+    {
+        pointerg<t> aux = pointStart();
+        while (aux.getNext() != null) 
         {
             aux.go();
         }
@@ -36,31 +56,34 @@ public class listag<t>
         return aux;
     }
 
-    public int index (Object dato)
+    public void addFirst(t dato) 
     {
-        pointerg<t> aux =  pointStart();
-        int contador = 1;
-        while(aux.getNext() != null && contador < indice )
-        {
-            aux.go();
-            contador++;
-        }
-
-        return aux != null && aux.getClass() != null ? aux:null;
+        add(dato, pointStart());
     }
 
-    public pointerg<t> last()
+    public void addLast(t dato) 
     {
-        pointerg<t> aux =  pointStart();
-        while(aux.getNext() != null)
-        {
-            aux.go();
-        }
-
-        return aux;
+        add(dato, last());
     }
 
-    public void add(t dato, pointerg<t> PN)
+    public void add(t dato) 
+    {
+        add(dato, last());
+    }
+
+    public void add(int indice, t dato) 
+    {
+        pointerg<t> aux = pointFirst();
+        int cont = 1;
+        while (aux.getNext() != null && cont < indice) 
+        {
+            aux.go();
+            cont++;
+        }
+        add(dato, aux);
+    }
+
+    public void add(t dato, pointerg<t> PN) 
     {
         if(PN != null && !PN.end())
         {
@@ -68,59 +91,43 @@ public class listag<t>
         }
     }
 
-    public void addFirst (t dato)
-    {
-        add(dato, pointStart());
-    }
-
-    public void addLast (t dato)
-    {
-        add(dato, last());
-    }
-
-    public void add(t dato, int indice)
-    {
-        int contador = 1;
-        pointerg<t> aux = pointStart();
-        while(aux.getNext() != null && contador < indice )
-        {
-            aux.go();
-            contador++;
-        }
-        
-        add(dato, aux);
-    }
-
-    public void remove(int indice )
+    public void remove(int indice) 
     {
         pointerg<t> aux = pointStart();
-
-        while(aux.getNext() != null && aux.getNext().getPass() != pass)
+        int cont = 1;
+        while (aux.getNext() != null && cont < indice) 
         {
             aux.go();
+            cont++;
         }
-
-        if(aux.kEnd())
+        if (!aux.kEnd()) 
         {
             aux.setNext(aux.getNext().getNext());
         }
     }
 
-    public t get(int indice)
-    {   
+    public t get(int indice) 
+    {
         pointerg<t> aux = pointStart();
-        int contador = 1;
-        while(aux != null && aux.nodog() != null && contador < indice )
+        int cont = 1;
+        while (aux != null && aux.getNodog() != null && cont < indice) 
         {
             aux.go();
-            contador++;
+            cont++;
         }
-
-        return aux.getNodog().getDato();
+        return aux.getNext().getDato();
     }
 
-    public int size()
+    public int size() 
     {
-        pointerg<t>
+        pointerg<t> aux = pointStart();
+        int cont = 0;
+        while (aux.getNext() != null) 
+        {
+            aux.go();
+            cont++;
+        }
+        return cont;
     }
+
 }

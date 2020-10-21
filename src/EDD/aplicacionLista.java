@@ -6,16 +6,21 @@ public class aplicacionLista
 {
     public static Scanner leer = new Scanner(System.in);
 
-    private static listag<producto> lista  = new listag<producto>();
+    private static listag<producto> lista  = new listag<>();
 
   
 
     public static void main(String[] args) 
     {
         
-        int opcion = 0, pass, value;
-        String name, descripcion;
+        int opcion = 0, pass, index;
+        String descripcion;
         float precio;
+
+        lista.addLast(new producto(1, "Lapiz", 5));
+        lista.addLast(new producto(2, "Lapiz", 7));
+        lista.addLast(new producto(3, "Lapiz", 10));
+
         do
         {
             opcion = menu();
@@ -27,11 +32,11 @@ public class aplicacionLista
                 System.out.print("Agregar clave: ");
                 pass = leer.nextInt();
 
-                System.out.println("Agregar nombre: ");
-                name = leer.next();
+                System.out.println("Agregar descripcion: ");
+                descripcion = leer.next();
 
-                System.out.println("Agregar valor: ");
-                value = leer.nextInt();
+                System.out.println("Agregar precio: ");
+                precio = leer.nextInt();
 
                 lista.addFirst(new producto(pass, descripcion, precio));
              
@@ -43,7 +48,22 @@ public class aplicacionLista
                 System.out.print("Agregar clave: ");
                 pass = leer.nextInt();
 
-                lista.remove(pass);
+                int j = 0;
+
+                do
+                {
+
+                producto dato = lista.get(j);
+
+                if(dato.getClave() == pass)
+                {
+                    lista.remove(j);
+                    break;
+                }
+
+                } while(j < lista.size());
+                
+                System.out.println(j == lista.size() ? " clave no encontrada" : "Registro eliminado");
            
                 break;
 
@@ -52,32 +72,31 @@ public class aplicacionLista
                 System.out.print("Agregar clave: ");
                 pass = leer.nextInt();
 
-                apuntador ap = lista.search(pass);
+                j = 0;
 
-                if(ap != null)
+                do
                 {
-                    System.err.println(ap);
-                }
+                    producto dato = lista.get(j);
 
-                else
-                {
-                    System.out.println("Clave no encontrada");
-                }
+                    if(dato.getClave() == pass)
+                    {
+                            System.out.println(dato);
+                            break;
+                    }
+                    j++;
+                } while(j < lista.size());
 
                 break;
 
                 case 4: //Mostrar cola
                 System.out.println("Contenido de la lista");
 
-                for(apuntador aux=lista.pointFirst(); !aux.end(); aux.move())
+                for (int i = 0; i < lista.size(); i++) 
                 {
-                    System.out.println(aux);
-                }               
-                break;
+                    System.out.println(lista.get(i));
+                }
 
-               /* case 5: //Acomodar cola
-                
-                break; */
+                break;
 
                 case 0: //Terminar programa
                 System.out.println("Terminar programa");
