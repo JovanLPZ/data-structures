@@ -37,7 +37,14 @@ public class producto
     }
 
     
-
+    public String toString()
+    {
+        return "Producto [Clave: " + clave + ", Descripcion: " + descripcion + ", Precio: " + precio +"]";
+    }
     
+    public boolean equals(producto pass)
+    {
+        return this.clave == pass.clave;
+    }
     
 }

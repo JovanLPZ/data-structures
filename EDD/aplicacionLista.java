@@ -13,13 +13,13 @@ public class aplicacionLista
     public static void main(String[] args) 
     {
         
-        int opcion = 0, pass, index;
+        int opcion = 0, pass;
         String descripcion;
         float precio;
 
         lista.addLast(new producto(1, "Lapiz", 5));
-        lista.addLast(new producto(2, "Lapiz", 7));
-        lista.addLast(new producto(3, "Lapiz", 10));
+        lista.addLast(new producto(2, "Pluma", 7));
+        lista.addLast(new producto(3, "Borrador", 10));
 
         do
         {
@@ -85,6 +85,7 @@ public class aplicacionLista
                     }
                     j++;
                 } while(j < lista.size());
+                System.out.println(j == lista.size() ? "Clave no encontrada" : "");
 
                 break;
 
@@ -107,6 +108,7 @@ public class aplicacionLista
             }
 
         } while(opcion != 0);
+        System.out.println("Indice: " + lista.indexOf(new producto (3, "Libreta", 100)));
         leer.close();
     }
 
@@ -119,7 +121,6 @@ public class aplicacionLista
         System.out.println("2.- Retira dato\n");
         System.out.println("3.- Muestra siguiente\n");
         System.out.println("4.- Muestra contenido\n");
-     // System.out.println("5.- Acomodar cola\n");
         System.out.println("0.- Salir\n");
         System.out.print("\nOpcion: ");
         
