@@ -160,7 +160,7 @@ public class listag<t>
             aux.go();
             cont++;
         }
-        return aux.getNext().getDato();
+        return aux.getNodog().getDato();
     }
 
     public int size() 
