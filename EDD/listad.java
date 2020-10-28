@@ -10,19 +10,19 @@ public class listad<t>
     }
 
 
-    private nodod<t> pointStart() 
+    private nodod<t> start() 
     {
         return root;
     }
 
-    private nodod<t> pointFirst() 
+    private nodod<t> first() 
     {
         return root.getNext();
     }
 /*
     public int indexOf(int pass) 
     {
-        pointerg<t> aux = pointFirst();
+        pointerg<t> aux = first();
         int cont = 0;
         while (aux != null && aux.getNodog() != null)
         {          
@@ -43,7 +43,7 @@ public class listad<t>
 
     public int indexOf( t dato) 
     {
-        pointerg<t> aux = pointFirst();
+        pointerg<t> aux = first();
         int cont = 0;
         while (aux != null && aux.getNodog() != null )
         {          
@@ -103,7 +103,7 @@ public class listad<t>
 
     public void addFirst(t dato) 
     {
-        add(dato, pointStart());
+        add(dato, start());
     }
 
     public void addLast(t dato) 
@@ -118,8 +118,8 @@ public class listad<t>
 
     public void add(int indice, t dato) 
     {
-        nodod<t> aux = pointFirst();
-        int cont = -1;
+        nodod<t> aux = start();
+        int cont = 0;
         while (aux.getNext() != null && cont < indice) 
         {
             aux = aux.getNext();
@@ -132,18 +132,18 @@ public class listad<t>
     {
         if(PN != null)
         {
-            PN.setNext(new nodod<t>(dato, PN, PN.getNext()));
+            PN.setNext(new nodod<>(dato, PN, PN.getNext()));
 
             if(PN.getNext().getNext() != null)
-            PN.getNext().setPrevious(PN.getNext());
+            PN.getNext().getNext().setPrevious(PN.getNext());
         }
     }
 
     public void remove(int indice) 
     {
-        nodod<t> aux = pointStart();
+        nodod<t> aux = start();
         int cont = 0;
-        while (aux.getNext() != null && cont < indice) 
+        while (aux.getNext() != null && cont < (indice-1)) 
         {
             aux = aux.getNext();
             cont++;
@@ -151,25 +151,29 @@ public class listad<t>
         if (aux.getNext() != null) 
         {
             aux.setNext(aux.getNext().getNext());
-            aux.getNext().setPrevious(aux);
+            if(aux.getNext() != null)
+            {
+                aux.getNext().setPrevious(aux);
+            }
+            
         }
     }
 
     public t get(int indice) 
     {
-        nodod<t> aux = pointStart();
+        nodod<t> aux = first();
         int cont = 0;
         while (aux != null && cont < indice) 
         {
             aux = aux.getNext();
             cont++;
         }
-        return aux.getDato();
+        return aux != null ? aux.getDato() : null;
     }
 
     public int size() 
     {
-        nodod<t> aux = pointStart();
+        nodod<t> aux = start();
         int cont = 0;
         while (aux.getNext() != null) 
         {

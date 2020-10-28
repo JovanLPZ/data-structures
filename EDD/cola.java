@@ -79,11 +79,6 @@ public class cola<t>
             }
         }
 
-        /*for(int i = 0; i < cola.length; i++)
-        {
-            cola[i] = null;
-        }*/
-
         for(int i = 0; i < cola.length; i++)
         {
             cola[i] = colatemp[i];

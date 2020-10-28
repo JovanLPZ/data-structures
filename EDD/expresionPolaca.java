@@ -14,8 +14,6 @@ public class expresionPolaca
 
         pila<Character> p = new pila<Character>(expresion.length());
 
-        
-
 
         int abierto1 = 0, cerrado1 = 0,
         abierto2 = 0, cerrado2 = 0,

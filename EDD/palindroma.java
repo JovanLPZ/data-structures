@@ -13,7 +13,7 @@ public class palindroma
         System.out.println("Escriba el texto: ");
         String textoOriginal = leer.next();
 
-        pila<Character> p = new pila<Character>(textoOriginal.length());
+        pila<Character> p = new pila<>(textoOriginal.length());
 
         for(int i = 0; i<textoOriginal.length(); i++)
         {
