@@ -6,7 +6,7 @@ public class listad<t>
 
     public listad() 
     {
-        root = new nodod<>();
+        root = new nodod<t>();
     }
 
 
@@ -125,14 +125,14 @@ public class listad<t>
             aux = aux.getNext();
             cont++;
         }
-        add(dato, aux);
+        add(dato, last());
     }
 
     public void add(t dato, nodod<t> PN) 
     {
         if(PN != null)
         {
-            PN.setNext(new nodod<>(dato, PN, PN.getNext()));
+            PN.setNext(new nodod<t>(dato, PN, PN.getNext()));
 
             if(PN.getNext().getNext() != null)
             PN.getNext().getNext().setPrevious(PN.getNext());
