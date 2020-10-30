@@ -125,7 +125,7 @@ public class listad<t>
             aux = aux.getNext();
             cont++;
         }
-        add(dato, last());
+        add(dato, aux);
     }
 
     public void add(t dato, nodod<t> PN) 
